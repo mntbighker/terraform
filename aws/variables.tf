@@ -1,10 +1,10 @@
 # AWS Information
 variable "region" {
-  default = "eu-west-1"
+  default = "us-gov-east-1"
 }
 
 variable "availability_zone" {
-  default = null
+  default = us-gov-east-1a
 }
 
 variable "efs_performance_mode" {
@@ -16,7 +16,7 @@ variable "efs_encrypted" {
 }
 
 variable "management_shape" {
-  default = "t3a.medium"
+  default = "c5.large"
 }
 
 variable "admin_public_keys" {
