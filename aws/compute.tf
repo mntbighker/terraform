@@ -16,14 +16,14 @@
 #   owners = ["792107900819"] #Owner ID as stated from https://forums.rockylinux.org/t/rocky-linux-official-aws-ami/3049/25
 # }
 # 
-# locals {
-#   mgmt_hostname = "mgmt"
-# }
-# 
-# resource "tls_private_key" "provisioner_key" {
-#   algorithm   = "RSA"  # AWS only supports RSA, not ECDSA
-#   rsa_bits = "4096"
-# }
+locals {
+  mgmt_hostname = "mgmt"
+}
+
+resource "tls_private_key" "provisioner_key" {
+  algorithm   = "RSA"  # AWS only supports RSA, not ECDSA
+  rsa_bits = "4096"
+}
 
 resource "aws_instance" "mgmt" {
   #ami           = data.aws_ami.rocky8.id
