@@ -4,7 +4,7 @@ variable "region" {
 }
 
 variable "availability_zone" {
-  default = us-gov-east-1a
+  default = null
 }
 
 variable "efs_performance_mode" {
