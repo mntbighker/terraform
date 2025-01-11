@@ -1,32 +1,33 @@
-data "aws_ami" "rocky8" {
-  # See http://cavaliercoder.com/blog/finding-the-latest-centos-ami.html
-  # https://wiki.centos.org/Cloud/AWS
-  most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["Rocky-8*"]
-  }
-
-  filter {
-    name = "architecture"
-    values = ["x86_64"]
-  }
-
-  owners = ["792107900819"] #Owner ID as stated from https://forums.rockylinux.org/t/rocky-linux-official-aws-ami/3049/25
-}
-
-locals {
-  mgmt_hostname = "mgmt"
-}
-
-resource "tls_private_key" "provisioner_key" {
-  algorithm   = "RSA"  # AWS only supports RSA, not ECDSA
-  rsa_bits = "4096"
-}
+# data "aws_ami" "rocky8" {
+#   # See http://cavaliercoder.com/blog/finding-the-latest-centos-ami.html
+#   # https://wiki.centos.org/Cloud/AWS
+#   most_recent = true
+# 
+#   filter {
+#     name   = "name"
+#     values = ["Rocky-8*"]
+#   }
+# 
+#   filter {
+#     name = "architecture"
+#     values = ["x86_64"]
+#   }
+# 
+#   owners = ["792107900819"] #Owner ID as stated from https://forums.rockylinux.org/t/rocky-linux-official-aws-ami/3049/25
+# }
+# 
+# locals {
+#   mgmt_hostname = "mgmt"
+# }
+# 
+# resource "tls_private_key" "provisioner_key" {
+#   algorithm   = "RSA"  # AWS only supports RSA, not ECDSA
+#   rsa_bits = "4096"
+# }
 
 resource "aws_instance" "mgmt" {
-  ami           = data.aws_ami.rocky8.id
+  #ami           = data.aws_ami.rocky8.id
+  ami			= ami-0fab2aa8aacc43975
   instance_type = var.management_shape
   vpc_security_group_ids = [aws_security_group.mgmt.id]
   subnet_id = aws_subnet.vpc_subnetwork.id
