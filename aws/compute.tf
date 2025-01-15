@@ -26,7 +26,7 @@ resource "tls_private_key" "provisioner_key" {
 }
 
 resource "aws_instance" "mgmt" {
-  ami           = ami-0f8b5e2682a9a5236
+  ami           = "ami-0f8b5e2682a9a5236"
   instance_type = var.management_shape
   vpc_security_group_ids = [aws_security_group.mgmt.id]
   subnet_id = aws_subnet.vpc_subnetwork.id
