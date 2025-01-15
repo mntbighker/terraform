@@ -42,7 +42,7 @@ EOF
 
     connection {
       type        = "ssh"
-      user        = "citc"
+      user        = "ec2-user"
       private_key = tls_private_key.provisioner_key.private_key_pem
       host        = self.public_ip
     }
