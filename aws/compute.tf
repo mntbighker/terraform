@@ -1,21 +1,21 @@
-data "aws_ami" "rhel9" {
-  most_recent = true
+#data "aws_ami" "rhel9" {
+#  most_recent = true
+#
+#  filter {
+#    name   = "name"
+#    values = ["Thor_New_*"]
+#  }
+#
+#  filter {
+#    name = "architecture"
+#    values = ["x86_64"]
+#  }
 
-  filter {
-    name   = "name"
-    values = ["Thor_New_*"]
-  }
+#  owners = ["003148221729"]
 
-  filter {
-    name = "architecture"
-    values = ["x86_64"]
-  }
-
-  owners = ["003148221729"]
-
-  locals {
-    mgmt_hostname = "mgmt"
-  }
+#  locals {
+#    mgmt_hostname = "mgmt"
+#  }
 
 resource "tls_private_key" "provisioner_key" {
   algorithm   = "RSA"  # AWS only supports RSA, not ECDSA
