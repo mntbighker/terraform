@@ -1,5 +1,5 @@
-#data "aws_ami" "rhel9" {
-#  most_recent = true
+data "aws_ami" "rhel9" {
+  most_recent = true
 #
 #  filter {
 #    name   = "name"
