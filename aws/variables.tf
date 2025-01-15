@@ -16,7 +16,7 @@ variable "efs_encrypted" {
 }
 
 variable "management_shape" {
-  default = "c5.large"
+  default = "t3a.medium"
 }
 
 variable "admin_public_keys" {
@@ -25,7 +25,7 @@ variable "admin_public_keys" {
 }
 
 variable "aws_shared_credentials" {
-  default = "~/.aws/credentials"
+  default = "~/.aws/config"
 }
 
 variable "profile" {
@@ -33,7 +33,7 @@ variable "profile" {
 }
 
 variable "ansible_repo" {
-  default = "https://github.com/clusterinthecloud/ansible.git"
+  default = "https://github.com/mntbighker/ansible.git"
 }
 
 variable "ansible_branch" {
