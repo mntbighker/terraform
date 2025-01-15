@@ -20,10 +20,10 @@
 #  mgmt_hostname = "mgmt"
 #}
 
-#resource "tls_private_key" "provisioner_key" {
-#  algorithm   = "RSA"  # AWS only supports RSA, not ECDSA
-#  rsa_bits = "4096"
-#}
+resource "tls_private_key" "provisioner_key" {
+  algorithm   = "RSA"  # AWS only supports RSA, not ECDSA
+  rsa_bits = "4096"
+}
 
 resource "aws_instance" "mgmt" {
   ami           = ami-0f8b5e2682a9a5236
