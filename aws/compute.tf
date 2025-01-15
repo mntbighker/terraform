@@ -14,9 +14,9 @@ data "aws_ami" "rhel9" {
 
   owners = ["003148221729"]
 
-# locals {
-#   mgmt_hostname = "mgmt"
-# }
+  locals {
+    mgmt_hostname = "mgmt"
+  }
 
 resource "tls_private_key" "provisioner_key" {
   algorithm   = "RSA"  # AWS only supports RSA, not ECDSA
