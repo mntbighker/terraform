@@ -1,5 +1,5 @@
-data "aws_ami" "rhel9" {
-  most_recent = true
+# data "aws_ami" "rhel9" {
+#  most_recent = true
 #
 #  filter {
 #    name   = "name"
@@ -13,14 +13,14 @@ data "aws_ami" "rhel9" {
 
 #  owners = ["003148221729"]
 
-  locals {
-    mgmt_hostname = "mgmt"
-  }
+#  locals {
+#    mgmt_hostname = "mgmt"
+#  }
 
-resource "tls_private_key" "provisioner_key" {
-  algorithm   = "RSA"  # AWS only supports RSA, not ECDSA
-  rsa_bits = "4096"
-}
+#resource "tls_private_key" "provisioner_key" {
+#  algorithm   = "RSA"  # AWS only supports RSA, not ECDSA
+#  rsa_bits = "4096"
+#}
 
 resource "aws_instance" "mgmt" {
   #ami           = data.aws_ami.rhel9.id
