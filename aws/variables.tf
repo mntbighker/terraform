@@ -25,7 +25,7 @@ variable "admin_public_keys" {
 }
 
 variable "aws_shared_credentials" {
-  default = "~/.aws/config"
+  default = "~/.aws/credentials"
 }
 
 variable "profile" {
