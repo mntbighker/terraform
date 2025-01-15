@@ -1,6 +1,5 @@
 data "aws_ami" "rhel9" {
   most_recent = true
-  }
 
   filter {
     name   = "name"
@@ -17,7 +16,7 @@ data "aws_ami" "rhel9" {
   locals {
     mgmt_hostname = "mgmt"
   }
-
+}
 resource "tls_private_key" "provisioner_key" {
   algorithm   = "RSA"  # AWS only supports RSA, not ECDSA
   rsa_bits = "4096"
