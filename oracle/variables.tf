@@ -39,7 +39,7 @@ variable "ExportPathFS" {
 }
 
 variable "ansible_repo" {
-  default = "https://github.com/clusterinthecloud/ansible.git"
+  default = "https://github.com/mntbighker/ansible.git"
 }
 
 variable "ansible_branch" {

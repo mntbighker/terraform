@@ -1,21 +1,18 @@
-# data "aws_ami" "rocky8" {
-#   # See http://cavaliercoder.com/blog/finding-the-latest-centos-ami.html
-#   # https://wiki.centos.org/Cloud/AWS
-#   most_recent = true
-# 
-#   filter {
-#     name   = "name"
-#     values = ["Rocky-8*"]
-#   }
-# 
-#   filter {
-#     name = "architecture"
-#     values = ["x86_64"]
-#   }
-# 
-#   owners = ["792107900819"] #Owner ID as stated from https://forums.rockylinux.org/t/rocky-linux-official-aws-ami/3049/25
-# }
-# 
+data "aws_ami" "rhel9" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["Thor_New_*"]
+  }
+
+  filter {
+    name = "architecture"
+    values = ["x86_64"]
+  }
+
+  owners = ["003148221729"]
+
 locals {
   mgmt_hostname = "mgmt"
 }
@@ -26,8 +23,7 @@ resource "tls_private_key" "provisioner_key" {
 }
 
 resource "aws_instance" "mgmt" {
-  #ami           = data.aws_ami.rocky8.id
-  ami           = "ami-0f8b5e2682a9a5236"
+  ami           = data.aws_ami.rhel9.id
   instance_type = var.management_shape
   vpc_security_group_ids = [aws_security_group.mgmt.id]
   subnet_id = aws_subnet.vpc_subnetwork.id
