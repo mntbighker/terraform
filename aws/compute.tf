@@ -1,21 +1,3 @@
-#data "aws_ami" "rocky8" {
-  # See http://cavaliercoder.com/blog/finding-the-latest-centos-ami.html
-  # https://wiki.centos.org/Cloud/AWS
-  #most_recent = true
-
-#  filter {
-#    name   = "name"
-#    values = ["Rocky-8*"]
-#  }
-
-#  filter {
-#    name = "architecture"
-#    values = ["x86_64"]
-#  }
-
-#  owners = ["792107900819"] #Owner ID as stated from https://forums.rockylinux.org/t/rocky-linux-official-aws-ami/3049/25
-#}
-
 locals {
   mgmt_hostname = "mgmt"
 }
