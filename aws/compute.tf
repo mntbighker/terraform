@@ -1,21 +1,24 @@
-# data "aws_ami" "rhel9" {
-#  most_recent = true
-#
+#data "aws_ami" "rocky8" {
+  # See http://cavaliercoder.com/blog/finding-the-latest-centos-ami.html
+  # https://wiki.centos.org/Cloud/AWS
+  #most_recent = true
+
 #  filter {
 #    name   = "name"
-#    values = ["Thor_New_*"]
+#    values = ["Rocky-8*"]
 #  }
-#
+
 #  filter {
 #    name = "architecture"
 #    values = ["x86_64"]
 #  }
 
-#  owners = ["003148221729"]
+#  owners = ["792107900819"] #Owner ID as stated from https://forums.rockylinux.org/t/rocky-linux-official-aws-ami/3049/25
+#}
 
-#  locals {
-#    mgmt_hostname = "mgmt"
-#  }
+#locals {
+#  mgmt_hostname = "mgmt"
+#}
 
 #resource "tls_private_key" "provisioner_key" {
 #  algorithm   = "RSA"  # AWS only supports RSA, not ECDSA
@@ -23,8 +26,7 @@
 #}
 
 resource "aws_instance" "mgmt" {
-  #ami           = data.aws_ami.rhel9.id
-  ami            = ami-0f8b5e2682a9a5236
+  ami           = 'ami-0f70021053ecf5cee'
   instance_type = var.management_shape
   vpc_security_group_ids = [aws_security_group.mgmt.id]
   subnet_id = aws_subnet.vpc_subnetwork.id
@@ -55,7 +57,7 @@ resource "aws_instance" "mgmt" {
 aws_access_key_id = ${aws_iam_access_key.mgmt_sa.id}
 aws_secret_access_key = ${aws_iam_access_key.mgmt_sa.secret}
 EOF
-}
+
     connection {
       type        = "ssh"
       user        = "ec2-user"
