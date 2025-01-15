@@ -27,7 +27,7 @@ resource "tls_private_key" "provisioner_key" {
 
 resource "aws_instance" "mgmt" {
   #ami           = data.aws_ami.rocky8.id
-  ami           = "ami-0fab2aa8aacc43975"
+  ami           = "ami-0f8b5e2682a9a5236"
   instance_type = var.management_shape
   vpc_security_group_ids = [aws_security_group.mgmt.id]
   subnet_id = aws_subnet.vpc_subnetwork.id
@@ -45,14 +45,14 @@ resource "aws_instance" "mgmt" {
 
     connection {
       type        = "ssh"
-      user        = "rocky"
+      user        = "ec2-user"
       private_key = tls_private_key.provisioner_key.private_key_pem
       host        = self.public_ip
     }
   }
 
   provisioner "file" {
-    destination = "/home/rocky/aws-credentials.csv"
+    destination = "/home/ec2-user/aws-credentials.csv"
     content     = <<EOF
 [default]
 aws_access_key_id = ${aws_iam_access_key.mgmt_sa.id}
@@ -61,7 +61,7 @@ EOF
 
     connection {
       type        = "ssh"
-      user        = "rocky"
+      user        = "ec2-user"
       private_key = tls_private_key.provisioner_key.private_key_pem
       host        = self.public_ip
     }
