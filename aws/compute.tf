@@ -3,7 +3,7 @@ locals {
 }
 
 resource "tls_private_key" "provisioner_key" {
-  algorithm   = "ECDSA"  # AWS only supports RSA, not ECDSA
+  algorithm   = "ED25519"  # AWS only supports RSA, not ECDSA
   rsa_bits = "4096"
 }
 
