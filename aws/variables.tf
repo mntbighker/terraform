@@ -16,7 +16,7 @@ variable "efs_encrypted" {
 }
 
 variable "management_shape" {
-  default = "t3a.medium"
+  default = "c5.medium"
 }
 
 variable "admin_public_keys" {
@@ -37,5 +37,5 @@ variable "ansible_repo" {
 }
 
 variable "ansible_branch" {
-  default = "6"
+  default = "11.1.0"
 }
