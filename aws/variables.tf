@@ -16,7 +16,7 @@ variable "efs_encrypted" {
 }
 
 variable "management_shape" {
-  default = "c5.medium"
+  default = "c5n.large"
 }
 
 variable "admin_public_keys" {
