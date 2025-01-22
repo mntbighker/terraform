@@ -37,5 +37,5 @@ variable "ansible_repo" {
 }
 
 variable "ansible_branch" {
-  default = "11.1.0"
+  default = "6"
 }
