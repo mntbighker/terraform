@@ -13,7 +13,7 @@ yum install -y git python3.11
 # Install Ansible
 mkdir -p /opt/venvs/
 python3.11 -m venv /opt/venvs/ansible
-/opt/venvs/ansible/bin/pip install "ansible ~= 8.0"
+/opt/venvs/ansible/bin/pip install ansible
 
 cat > /root/hosts <<EOF
 [management]
